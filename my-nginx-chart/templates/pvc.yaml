@@ -1,11 +1,11 @@
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: shared-pvc
+  name: nginx-pvc
 spec:
   accessModes:
     - ReadWriteMany
-  storageClassName: shared-storage # Deve essere uguale a quella del PV
+  storageClassName: longhorn
   resources:
     requests:
-      storage: 5Gi
+      storage: 1Gi
