@@ -1,1 +1,4 @@
-
+replicaCount: 2
+image: nginx:alpine
+nodePort: 30080
+storagePath: /usr/share/nginx/html
