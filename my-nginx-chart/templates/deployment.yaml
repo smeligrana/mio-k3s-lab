@@ -21,4 +21,4 @@ spec:
       volumes:
       - name: web-storage
         persistentVolumeClaim:
-          claimName: shared-pvc
+          claimName: nginx-pvc
