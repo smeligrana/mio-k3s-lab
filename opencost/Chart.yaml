@@ -1,0 +1,7 @@
+apiVersion: v2
+name: my-opencost-wrapper
+version: 1.0.0
+dependencies:
+  - name: opencost
+    version: 1.x.x
+    repository: https://opencost.github.io/opencost-helm-chart
