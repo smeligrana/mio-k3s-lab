@@ -6,3 +6,14 @@ opencost:
         enabled: true
         storageClass: "longhorn"
         size: 5Gi
+      fullnameOverride: "opencost-prometheus"
+    
+  opencost:
+    prometheus:
+      internal:
+        enabled: true
+        serviceName: "opencost-prometheus-server" # Nome generato dal chart di Prometheus
+        namespace: "opencost"
+        port: 80
+      external:
+        enabled: false
