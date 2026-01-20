@@ -1,0 +1,8 @@
+opencost:
+  prometheus:
+    install: true
+    server:
+      persistentVolume:
+        enabled: true
+        storageClass: "longhorn"
+        size: 5Gi
