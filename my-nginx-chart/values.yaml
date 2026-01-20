@@ -2,3 +2,7 @@ replicaCount: 1
 image: nginx:alpine
 nodePort: 30085
 storagePath: /usr/share/nginx/html
+
+ingress:
+  enabled: true
+  host: mia-app.local
