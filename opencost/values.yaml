@@ -1,19 +1,16 @@
+prometheus:
+  enabled: true
+  server:
+    persistentVolume:
+      enabled: true
+      storageClass: "longhorn"
+      size: 5Gi
+    fullnameOverride: "prometheus"
+
 opencost:
   prometheus:
-    install: true
-    server:
-      persistentVolume:
-        enabled: true
-        storageClass: "longhorn"
-        size: 5Gi
-      fullnameOverride: "opencost-prometheus"
-    
-  opencost:
-    prometheus:
-      internal:
-        enabled: true
-        serviceName: "opencost-prometheus-server" # Nome generato dal chart di Prometheus
-        namespace: "opencost"
-        port: 80
-      external:
-        enabled: false
+    internal:
+      enabled: true
+      serviceName: "prometheus-server"
+      namespace: "opencost"
+      port: 80
