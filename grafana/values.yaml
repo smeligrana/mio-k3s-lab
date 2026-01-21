@@ -1,0 +1,25 @@
+grafana:
+  persistence:
+    enabled: true
+    storageClassName: "longhorn"
+    size: 2Gi
+  
+  datasources:
+    datasources.yaml:
+      apiVersion: 1
+      datasources:
+        - name: Prometheus
+          type: prometheus
+          url: http://prometheus-server.prometheus.svc.cluster.local:80
+          access: proxy
+          isDefault: true
+  
+  resources:
+    limits:
+      cpu: 200m
+      memory: 256Mi
+    requests:
+      cpu: 100m
+      memory: 128Mi
+  
+  adminPassword: "admin"
