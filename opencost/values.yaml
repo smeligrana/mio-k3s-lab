@@ -1,16 +1,11 @@
-prometheus:
-  enabled: true
-  server:
-    persistentVolume:
-      enabled: true
-      storageClass: "longhorn"
-      size: 5Gi
-    fullnameOverride: "prometheus"
-
 opencost:
   prometheus:
-    internal:
-      enabled: true
-      serviceName: "prometheus-server"
-      namespace: "opencost"
-      port: 80
+    install: false
+    
+  opencost:
+    prometheus:
+      external:
+        enabled: true    
+        url: "http://prometheus-server.opencost.svc.cluster.local:80"
+      internal:
+        enabled: false
