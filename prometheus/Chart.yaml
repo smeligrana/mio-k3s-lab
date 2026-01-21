@@ -1,0 +1,11 @@
+apiVersion: v2
+name: prometheus-wrapper
+description: Wrapper per l'installazione di Prometheus Community
+type: application
+version: 1.0.0
+appVersion: "1.0.0"
+
+dependencies:
+  - name: prometheus
+    version: 28.6.0
+    repository: https://prometheus-community.github.io/helm-charts
