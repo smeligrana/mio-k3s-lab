@@ -1,5 +1,9 @@
 prometheus:
   server:
+    extraScrapeConfigs: |
+      - job_name: 'opencost'
+        static_configs:
+          - targets: ['opencost.opencost.svc.cluster.local:9003']
     persistentVolume:
       enabled: true
       storageClass: "longhorn"
