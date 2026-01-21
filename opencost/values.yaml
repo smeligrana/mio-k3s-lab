@@ -6,6 +6,6 @@ opencost:
     prometheus:
       external:
         enabled: true    
-        url: "http://prometheus-server.opencost.svc.cluster.local:80"
+        url: "http://prometheus-server.prometheus.svc.cluster.local:80"
       internal:
         enabled: false
