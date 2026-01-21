@@ -1,0 +1,20 @@
+prometheus:
+  server:
+    persistentVolume:
+      enabled: true
+      storageClass: "longhorn"
+      size: 5Gi
+    resources:
+      limits:
+        cpu: 500m
+        memory: 512Mi
+      requests:
+        cpu: 200m
+        memory: 256Mi
+    
+  alertmanager:
+    enabled: false
+  prometheus-pushgateway:
+    enabled: false
+  prometheus-node-exporter:
+    enabled: true
