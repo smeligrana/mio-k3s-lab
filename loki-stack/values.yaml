@@ -1,6 +1,13 @@
 loki:
   deploymentMode: SingleBinary
   
+  chunksCache:
+    enabled: false
+  resultsCache:
+    enabled: false
+  lokiCanary:
+    enabled: false
+  
   backend:
     replicas: 0
   read:
@@ -28,14 +35,6 @@ loki:
       filesystem:
         chunks_directory: /var/loki/chunks
         rules_directory: /var/loki/rules
-    
-    chunksCache:
-      enabled: false
-    memcached:
-      chunks_cache:
-        enabled: false
-      index_queries_cache:
-        enabled: false
 
   singleBinary:
     replicas: 1
