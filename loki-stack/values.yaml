@@ -60,4 +60,4 @@ promtail:
       memory: "256Mi"
   config:
     clients:
-      - url: http://loki:3100/loki/api/v1/push
+      - url: http://loki-stack.loki-stack.svc.cluster.local:3100/loki/api/v1/push
