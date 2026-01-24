@@ -1,9 +1,12 @@
 apiVersion: v2
 name: loki-wrapper
-description: Wrapper per lo stack di logging
+description: Wrapper per lo stack di logging moderno (Loki 3.x)
 type: application
 version: 1.0.0
 dependencies:
-  - name: loki-stack
-    version: "2.10.2"
+  - name: loki
+    version: "6.x.x" # Versione moderna del chart
+    repository: "https://grafana.github.io/helm-charts"
+  - name: promtail
+    version: "6.x.x"
     repository: "https://grafana.github.io/helm-charts"
