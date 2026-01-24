@@ -48,7 +48,7 @@ promtail:
       cpu: "10m"
       memory: "64Mi"
     limits:
-      memory: "128Mi"
+      memory: "256Mi"
   config:
     clients:
       - url: http://loki:3100/loki/api/v1/push
