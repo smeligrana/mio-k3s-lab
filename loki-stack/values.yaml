@@ -1,26 +1,21 @@
-loki-stack:
+loki:
+  deploymentMode: SingleBinary # Ideale per VirtualBox
   loki:
-    enabled: true
+    auth_enabled: false
+    commonConfig:
+      replication_factor: 1
+    storage:
+      type: 'filesystem'
+  
+  # Configurazione Storage su Longhorn
+  singleBinary:
+    replicas: 1
     persistence:
       enabled: true
-      storageClassName: "longhorn"
-      size: 5Gi
-    config:
-      table_manager:
-        retention_deletes_enabled: true
-        retention_period: 7d # Teniamo solo 7 giorni per non saturare il disco
-  
-  promtail:
-    enabled: true
-    config:
-      log_level: info
-      serverPort: 3101
-      # Qui Promtail legge automaticamente i log di sistema e dei pod
-      clients:
-        - url: http://{{ .Release.Name }}-loki:3100/loki/api/v1/push
+      storageClass: "longhorn"
+      size: 10Gi
 
-  # Disabilitiamo quello che non serve per risparmiare RAM
-  grafana:
-    enabled: false # Usiamo quella che hai già installato
-  prometheus:
-    enabled: false
+promtail:
+  config:
+    clients:
+      - url: http://loki:3100/loki/api/v1/push
