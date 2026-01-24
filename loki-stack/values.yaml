@@ -28,6 +28,9 @@ loki:
       filesystem:
         chunks_directory: /var/loki/chunks
         rules_directory: /var/loki/rules
+    
+    chunksCache:
+      enabled: false
 
   singleBinary:
     replicas: 1
