@@ -6,7 +6,7 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: https://github.com/tuo-utente/mio-repo-gitops.git
+    repoURL: https://github.com/smeligrana/mio-k3s-lab.git
     targetRevision: HEAD
     path: prometheus
   destination:
