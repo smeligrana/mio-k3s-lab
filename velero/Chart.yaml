@@ -1,0 +1,7 @@
+apiVersion: v2
+name: velero-wrapper
+version: 1.0.0
+dependencies:
+  - name: velero
+    version: 7.2.2 # Controlla l'ultima versione su Artifact Hub
+    repository: https://vmware-tanzu.github.io/helm-charts
