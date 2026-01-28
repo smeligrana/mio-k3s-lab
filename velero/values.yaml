@@ -1,48 +1,47 @@
-velero:
-  resources:
-    requests:
-      cpu: 100m
-      memory: 128Mi
-    limits:
-      cpu: 500m
-      memory: 512Mi
+resources:
+  requests:
+    cpu: 100m
+    memory: 128Mi
+  limits:
+    cpu: 500m
+    memory: 512Mi
 
-  initContainers:
-    - name: velero-plugin-for-aws
-      image: velero/velero-plugin-for-aws:v1.9.0
-    - name: velero-plugin-for-csi
-      image: velero/velero-plugin-for-csi:v0.7.0
+initContainers:
+  - name: velero-plugin-for-aws
+    image: velero/velero-plugin-for-aws:v1.9.0
+  - name: velero-plugin-for-csi
+    image: velero/velero-plugin-for-csi:v0.7.0
 
-  configuration:
-    backupStorageLocation:
-      - name: default
-        provider: aws
-        bucket: k3s-backups
-        config:
-          region: minio
-          s3ForcePathStyle: true
-          s3Url: http://192.168.1.82:9000 
-    volumeSnapshotLocation:
-      - name: default
-        provider: aws
-        config:
-          region: minio
+configuration:
+  backupStorageLocation:
+    - name: default
+      provider: aws
+      bucket: k3s-backups
+      config:
+        region: minio
+        s3ForcePathStyle: true
+        s3Url: http://192.168.1.82:9000 
+  volumeSnapshotLocation:
+    - name: default
+      provider: aws
+      config:
+        region: minio
  
-  credentials:
-    secretContents:
-      cloud: |
-        [default]
-        aws_access_key_id = minioadmin
-        aws_secret_access_key = minioadmin
+credentials:
+  secretContents:
+    cloud: |
+      [default]
+      aws_access_key_id = minioadmin
+      aws_secret_access_key = minioadmin
         
-  upgradeCRDs:
-    image:
-      repository: rancher/kubectl
-      tag: v1.30.1
+upgradeCRDs:
+  image:
+    repository: rancher/kubectl
+    tag: v1.30.1
       
-  kubectl:
-    image:
-      repository: rancher/kubectl
-      tag: v1.30.1
+kubectl:
+  image:
+    repository: rancher/kubectl
+    tag: v1.30.1
 
   
