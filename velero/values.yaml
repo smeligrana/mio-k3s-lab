@@ -1,5 +1,4 @@
 velero:
-  # Risorse limitate per evitare crash del nodo (importante per il tuo lab!)
   resources:
     requests:
       cpu: 100m
@@ -18,22 +17,20 @@ velero:
     backupStorageLocation:
       - name: default
         provider: aws
-        bucket: my-kubernetes-backups
+        bucket: k3s-backups
         config:
           region: minio
           s3ForcePathStyle: true
-          s3Url: http://ip-del-tuo-nas-o-minio:9000
+          s3Url: http://192.168.1.82:9000 
     volumeSnapshotLocation:
       - name: default
         provider: aws
         config:
           region: minio
-
-  # Credenziali: Qui dovresti usare un Secret (SealedSecrets o simile)
-  # Per ora, ecco come definirle nel wrapper
+ 
   credentials:
     secretContents:
       cloud: |
         [default]
-        aws_access_key_id = IL_TUO_USER
-        aws_secret_access_key = LA_TUA_PASSWORD
+        aws_access_key_id = minioadmin
+        aws_secret_access_key = minioadmin
