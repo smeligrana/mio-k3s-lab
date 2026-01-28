@@ -37,6 +37,6 @@ velero:
   kubectl:
     image:
       repository: rancher/kubectl
-      tag: v1.26.7
+      tag: v1.30.1
 
   
