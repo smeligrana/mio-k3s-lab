@@ -36,7 +36,7 @@ velero:
         aws_secret_access_key = minioadmin
   kubectl:
     image:
-      repository: bitnami/kubectl
-      tag: 1.31.0
+      repository: rancher/kubectl
+      tag: v1.31.0
 
   
