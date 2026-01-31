@@ -43,6 +43,13 @@ velero:
         - mountPath: /target
           name: plugins
 
+  metrics:
+    enabled: true
+    serviceMonitor:
+      enabled: true  # Se hai installato il Prometheus Operator
+    prometheusRule:
+      enabled: true  # Per ricevere avvisi (alert) se un backup fallisce
+
   # 5. Risorse
   resources:
     requests:
