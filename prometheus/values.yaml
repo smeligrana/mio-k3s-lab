@@ -1,8 +1,9 @@
 prometheus:
-  extraScrapeConfigs: |
-    - job_name: 'opencost'
+  extraScrapeConfigs:
+    - job_name: 'velero-stats'
+      metrics_path: '/metrics'
       static_configs:
-        - targets: ['opencost.opencost.svc.cluster.local:9003']
+        - targets: ['velero-stack.velero.svc.cluster.local:8085']
   server:   
     persistentVolume:
       enabled: true
