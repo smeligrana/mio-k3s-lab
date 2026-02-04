@@ -1,0 +1,10 @@
+apiVersion: v2
+name: postgres-wrapper
+description: Wrapper per PostgreSQL Multi-DB
+version: 1.0.0
+appVersion: "16.0"
+
+dependencies:
+  - name: postgresql
+    version: "17.6.0"
+    repository: "https://charts.bitnami.com/bitnami"
