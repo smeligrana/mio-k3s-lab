@@ -1,0 +1,22 @@
+postgresql:
+  # 1. Credenziali Globali
+  auth:
+    username: superadmin
+    password: "PasswordSicura123"
+    database: default_db # Il DB creato di default dal chart
+
+  # 2. Persistenza
+  primary:
+    persistence:
+      size: 5Gi
+    
+    # 3. Script per creare Database multipli
+    initdb:
+      scripts:
+        create-multiple-dbs.sql: |
+          CREATE DATABASE client_alpha;
+          CREATE DATABASE client_beta;
+          CREATE DATABASE analytics;
+          -- Esempio di creazione utente specifico per un DB
+          CREATE USER user_alpha WITH PASSWORD 'UserPass123';
+          GRANT ALL PRIVILEGES ON DATABASE client_alpha TO user_alpha;
