@@ -8,7 +8,7 @@ spec:
   source:
     repoURL: https://github.com/smeligrana/mio-k3s-lab.git
     targetRevision: main
-    path: postgresql
+    path: postgres
   destination:
     server: https://kubernetes.default.svc
     namespace: postgresql
