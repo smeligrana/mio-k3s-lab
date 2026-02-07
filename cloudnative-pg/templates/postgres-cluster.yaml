@@ -1,0 +1,18 @@
+apiVersion: postgresql.cnpg.io/v1
+kind: Cluster
+metadata:
+  name: {{ .Values.cluster.name }}
+  annotations:
+    argocd.argoproj.io/sync-wave: "1"
+spec:
+  instances: {{ .Values.cluster.instances }}
+  imageName: {{ .Values.cluster.image }}
+
+  storage:
+    size: {{ .Values.cluster.storageSize }}
+
+  bootstrap:
+    initdb:
+      database: {{ .Values.cluster.mainDb }}
+      postInitSQL:
+        {{- toYaml .Values.cluster.extraDbs | nindent 8 }}
