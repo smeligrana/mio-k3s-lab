@@ -1,0 +1,13 @@
+cloudnative-pg:
+  installCRDs: true
+
+cluster:
+  name: "db-aziendale"
+  instances: 3
+  image: "ghcr.io/cloudnative-pg/postgresql:16"
+  storageSize: "10Gi"
+  mainDb: "app_main"
+  extraDbs:
+    - CREATE DATABASE marketing;
+    - CREATE DATABASE sales;
+    - CREATE DATABASE hr;
