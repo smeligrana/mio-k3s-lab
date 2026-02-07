@@ -5,7 +5,7 @@ cluster:
   name: "db-aziendale"
   instances: 3
   image: "ghcr.io/cloudnative-pg/postgresql:16"
-  storageSize: "10Gi"
+  storageSize: "3Gi"
   mainDb: "app_main"
   extraDbs:
     - CREATE DATABASE marketing;
