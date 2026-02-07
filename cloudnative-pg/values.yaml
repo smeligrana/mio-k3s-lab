@@ -3,7 +3,7 @@ cloudnative-pg:
 
 cluster:
   name: "db-aziendale"
-  instances: 3
+  instances: 2
   image: "ghcr.io/cloudnative-pg/postgresql:16"
   storageSize: "3Gi"
   mainDb: "app_main"
